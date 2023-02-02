@@ -20,7 +20,7 @@ app.use(function(req,res,next){
 });
 //const port=2410
 var port= process.env.PORT || 2410;
-const {Client}=requier("pg")
+const {Client}=require("pg")
 const client= new Client(
     {
         user:"postgres",
