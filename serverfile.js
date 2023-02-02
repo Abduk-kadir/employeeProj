@@ -42,7 +42,7 @@ let connData={
     password:"1994",
     database:"testDb"
 }
-let connection=mysql.createConnection(connData)
+//let connection=mysql.createConnection(connData)
 
 app.get('/svr/employees',function(req,res){
 
