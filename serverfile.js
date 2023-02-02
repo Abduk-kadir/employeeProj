@@ -104,7 +104,7 @@ app.get('/svr/employees/designation/:des',function(req,res){
 app.post('/svr/employees',function(req,res){
     let {body}=req
     let {name,department,designation,salary,gender}=body
-    let sql='insert into employees(name,department,designation,salary,gender) values(?,?,?,?,?)'
+    let sql='INSERT INTO employees(name,department,designation,salary,gender) VALUES(?,?,?,?,?)'
     client.query(sql,[name,department,designation,salary,gender],function(err,result){
         if(err){
             res.send(err)
@@ -155,21 +155,21 @@ app.put('/svr/employees/:id',function(req,res){
 app.delete('/svr/employees/:id',function(req,res){
      let {id}=req.params
     
-     let sql='select * from employees'
+     let sql='SELECT * FROM employees'
      client.query(sql,function(err,result){
         if(err){
             res.status(404).send(err)
         }
         else{
-            let index=result.findIndex(elem=>elem.id==id)
+            let index=result.rows.findIndex(elem=>elem.id==id)
             if(index>=0){
-               let sql2='delete from employees where id=?'
+               let sql2='DELETE FROM employees WHERE id=?'
                client.query(sql2,id,function(err,result2){
                  if(err){
                     res.status(404).send(err)
                  }
                  else{
-                    let emp=result[index]
+                    let emp=result.rows[index]
                     res.send(emp)
                  }
 
