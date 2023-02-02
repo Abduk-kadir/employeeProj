@@ -60,7 +60,7 @@ app.get('/svr/employees',function(req,res){
            res.send(result)
           
         }
-        client.end();
+        
     })
 })
 
@@ -76,7 +76,7 @@ app.get('/svr/employees/department/:dept',function(req,res){
             res.send(arr)
            
         }
-        client.end()
+        
     })
     
 })
@@ -92,7 +92,7 @@ app.get('/svr/employees/designation/:des',function(req,res){
             res.send(arr)
           
         }
-        client.end()
+        
     })
     
 })
@@ -113,7 +113,7 @@ app.post('/svr/employees',function(req,res){
             res.send(body)
            
         }
-        client.end()
+        
     })
 
 })
