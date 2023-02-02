@@ -54,10 +54,10 @@ app.get('/svr/employees',function(req,res){
         }
         else{
             
-           result=designation?result.filter(elem=>elem.designation==designation):result
-           result=department?result.filter(elem=>elem.department==department):result
-           result=gender?result.filter(elem=>elem.gender==gender):result
-           res.send(result)
+           result.rows=designation?result.rows.filter(elem=>elem.designation==designation):result.rows
+           result.rows=department?result.rows.filter(elem=>elem.department==department):result.rows
+           result.rows=gender?result.rows.filter(elem=>elem.gender==gender):result.rows
+           res.send(result.rows)
           
         }
         
@@ -72,7 +72,7 @@ app.get('/svr/employees/department/:dept',function(req,res){
             res.status(404).send(err)
         }
         else{
-            let arr=result.filter(elem=>elem.department==dept)
+            let arr=result.rows.filter(elem=>elem.department==dept)
             res.send(arr)
            
         }
@@ -88,7 +88,7 @@ app.get('/svr/employees/designation/:des',function(req,res){
             res.status(404).send(err)
         }
         else{
-            let arr=result.filter(elem=>elem.designation==des)
+            let arr=result.rows.filter(elem=>elem.designation==des)
             res.send(arr)
           
         }
